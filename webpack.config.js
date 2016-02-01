@@ -2,13 +2,13 @@
 
 var path = require('path');
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
-var pathToReact = path.resolve(node_modules_dir, 'react/dist/react.min.js');
 
 var deps = [
   'react/dist/react.min.js',
   'react-dom/dist/react-dom.min.js',
   'react-router/dist/react-router.min.js',
-  'react-bootstrap/dist/react-bootstrap.min.js'
+  'react-bootstrap/dist/react-bootstrap.min.js',
+  'redux/dist/redux.min.js'
 ];
 
 var config = {
