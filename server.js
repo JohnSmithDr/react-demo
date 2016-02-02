@@ -5,29 +5,29 @@
 var path = require('path');
 var config = require('config');
 var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config');
 var logger = require('tracer').colorConsole();
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
 
 var app = express();
-var compiler = webpack(config);
+var compiler = webpack(webpackConfig);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
-  publicPath: config.output.publicPath
+  publicPath: webpackConfig.output.publicPath
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function (req, res) {
-  console.log(req.url);
+  logger.debug(req.url);
   res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 var serverPort = config.get('server.port');
 app.listen(serverPort, (err) => {
   if (err) {
-    console.error(err);
+    logger.error(err);
     return;
   }
   logger.info('Listening at http://localhost:', serverPort);
