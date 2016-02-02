@@ -7,22 +7,19 @@ var deps = [
   'react/dist/react.min.js',
   'react-dom/dist/react-dom.min.js',
   'react-router/dist/react-router.min.js',
-  'react-bootstrap/dist/react-bootstrap.min.js',
   'redux/dist/redux.min.js'
 ];
 
 var config = {
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'src/main.js')
+    path.resolve(__dirname, './index.js')
   ],
-  resolve: {
-    alias: {}
-  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+  },
+  resolve: {
+    alias: {}
   },
   module: {
     loaders: [
@@ -34,8 +31,8 @@ var config = {
         }
       },
       {
-        test: /\.css$/, // Only .css files
-        loader: 'style!css' // Run both style-loader and css-loader
+        test: /\.css$/,
+        loader: 'style!css'
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
