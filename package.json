@@ -7,6 +7,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "John Smith",
@@ -14,6 +15,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "config": "^1.19.0",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-urlrewrite": "^1.2.0",
     "react": "^0.14.7",
